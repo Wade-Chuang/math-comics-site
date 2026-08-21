@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>學測數學漫畫系列</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:ital,wght@0,600;1,500;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1B2340; --ink-soft:#4A5178; --paper:#EEF0F6; --paper-alt:#DCE1F0;
+  --surface:#FFFFFF; --surface-2:#F6F7FB; --coral:#FF5A46; --coral-dark:#D93F2C;
+  --amber:#FFB100; --amber-dark:#C97E00; --teal:#1FA98D; --teal-dark:#0F7A64;
+  --shadow-ink: rgba(27,35,64,.18);
+  --font-display:'Baloo 2', 'Noto Sans TC', sans-serif;
+  --font-head:'Noto Sans TC', sans-serif;
+  --font-body:'Noto Sans TC', sans-serif;
+  --font-math:'Noto Serif TC', serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#ECEEF7; --ink-soft:#B9BEDD; --paper:#0F1226; --paper-alt:#1B2140; --surface:#191E3B; --surface-2:#141834;
+    --coral:#FF7A64; --amber:#FFC53D; --amber-dark:#E0A430; --teal:#2DC9A8; --teal-dark:#1B9982; --shadow-ink: rgba(0,0,0,.45);
+  }
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+.sprite-defs{position:absolute;width:0;height:0;overflow:hidden;}
+.char{display:block;filter:drop-shadow(0 6px 10px var(--shadow-ink));}
+
+.hero{
+  min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:60px 20px 50px;text-align:center;
+  background:radial-gradient(circle at 15% 20%, var(--paper-alt) 0%, transparent 45%),radial-gradient(circle at 85% 75%, var(--paper-alt) 0%, transparent 40%),var(--paper);
+}
+.hero-badge{
+  font-family:var(--font-display);font-weight:700;font-size:.85rem;letter-spacing:.08em;
+  background:var(--ink);color:var(--paper);padding:7px 18px;border-radius:999px;
+  transform:rotate(-3deg);box-shadow:3px 3px 0 var(--coral);margin-bottom:26px;
+}
+.hero-title{
+  font-family:var(--font-head);font-weight:900;font-size:clamp(2.4rem,8vw,4.2rem);
+  line-height:1.15;margin:0 0 14px;
+}
+.hero-title .accent{color:var(--coral);}
+.hero-sub{
+  font-family:var(--font-display);font-weight:600;font-size:clamp(1rem,2.4vw,1.25rem);
+  color:var(--ink-soft);max-width:44ch;margin:0 0 30px;
+}
+.hero-cast{display:flex;justify-content:center;align-items:flex-end;gap:32px;margin-bottom:20px;}
+.hero-cast figure{margin:0;text-align:center;}
+.hero-cast .char{width:120px;height:120px;}
+.hero-cast figcaption{font-size:.82rem;font-weight:700;color:var(--ink-soft);margin-top:6px;}
+.hero-note{font-size:.85rem;color:var(--ink-soft);}
+
+.section-title{
+  font-family:var(--font-display);font-weight:700;font-size:.85rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--coral-dark);margin:36px 0 14px;display:flex;align-items:center;gap:10px;
+}
+.section-title::before{content:'';width:26px;height:3px;background:var(--coral);border-radius:2px;}
+.section-title.b::before{background:var(--teal);}
+.section-title.b{color:var(--teal-dark);}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:8px;}
+.card{
+  display:block;text-decoration:none;color:var(--ink);
+  background:var(--surface);border:3px solid var(--ink);border-radius:14px;
+  padding:18px 20px;box-shadow:5px 5px 0 var(--shadow-ink);
+  transition:transform .15s;position:relative;
+}
+.card:hover{transform:translate(-2px,-2px);}
+.card .num{font-family:var(--font-display);font-weight:800;font-size:.72rem;color:var(--coral-dark);letter-spacing:.06em;}
+.card.b .num{color:var(--teal-dark);}
+.card .title{font-family:var(--font-head);font-weight:900;font-size:1.08rem;margin-top:6px;}
+.card .lock{
+  display:block;text-align:center;color:var(--ink-soft);
+  border:2.5px dashed var(--ink-soft);border-radius:14px;padding:18px 20px;
+  position:relative;background:transparent;box-shadow:none;
+}
+.card .lock .badge{position:absolute;top:12px;right:14px;opacity:.6;}
+
+footer{text-align:center;padding:60px 20px 70px;color:var(--ink-soft);font-size:.85rem;}
+footer .char{width:80px;height:80px;margin-bottom:14px;}
+a:focus-visible{outline:3px solid var(--coral);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<svg class="sprite-defs" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<symbol id="owl-cheer" viewBox="0 0 200 200">
+  <ellipse cx="100" cy="186" rx="52" ry="7" fill="var(--shadow-ink)"/>
+  <ellipse cx="42" cy="95" rx="15" ry="30" fill="var(--teal-dark)" transform="rotate(-95 42 95)"/>
+  <ellipse cx="158" cy="95" rx="15" ry="30" fill="var(--teal-dark)" transform="rotate(95 158 95)"/>
+  <ellipse cx="100" cy="112" rx="58" ry="55" fill="var(--teal)"/>
+  <path d="M55,55 L45,25 L68,50 Z" fill="var(--teal-dark)"/>
+  <path d="M145,55 L155,25 L132,50 Z" fill="var(--teal-dark)"/>
+  <ellipse cx="100" cy="122" rx="34" ry="38" fill="var(--surface)"/>
+  <path d="M60,86 Q78,72 96,86" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M104,86 Q122,72 140,86" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="78" cy="102" r="20" fill="var(--surface)" stroke="var(--ink)" stroke-width="4"/>
+  <circle cx="122" cy="102" r="20" fill="var(--surface)" stroke="var(--ink)" stroke-width="4"/>
+  <line x1="98" y1="102" x2="102" y2="102" stroke="var(--ink)" stroke-width="4"/>
+  <line x1="58" y1="98" x2="46" y2="90" stroke="var(--ink)" stroke-width="3"/>
+  <line x1="142" y1="98" x2="154" y2="90" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="78" cy="102" r="6" fill="var(--ink)"/>
+  <circle cx="80.5" cy="99.5" r="2" fill="var(--surface)"/>
+  <circle cx="122" cy="102" r="6" fill="var(--ink)"/>
+  <circle cx="124.5" cy="99.5" r="2" fill="var(--surface)"/>
+  <path d="M90,122 Q100,132 110,122 L107,136 L93,136 Z" fill="var(--amber)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M80,154 L96,146 L96,162 Z" fill="var(--coral)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M120,154 L104,146 L104,162 Z" fill="var(--coral)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="100" cy="154" r="5" fill="var(--coral-dark)"/>
+  <ellipse cx="85" cy="182" rx="10" ry="6" fill="var(--amber-dark)"/>
+  <ellipse cx="115" cy="182" rx="10" ry="6" fill="var(--amber-dark)"/>
+  <path d="M28,60 L32,68 L40,70 L32,72 L28,80 L24,72 L16,70 L24,68 Z" fill="var(--amber)"/>
+  <path d="M172,50 L175,56 L181,58 L175,60 L172,66 L169,60 L163,58 L169,56 Z" fill="var(--amber)"/>
+</symbol>
+<symbol id="student-happy" viewBox="0 0 200 200">
+  <ellipse cx="100" cy="186" rx="52" ry="7" fill="var(--shadow-ink)"/>
+  <path d="M42,110 Q34,45 100,38 Q166,45 158,110 Q164,150 142,158 L58,158 Q36,150 42,110 Z" fill="var(--ink)"/>
+  <circle cx="52" cy="118" r="9" fill="#FFD9B3"/>
+  <circle cx="148" cy="118" r="9" fill="#FFD9B3"/>
+  <circle cx="100" cy="112" r="52" fill="#FFD9B3"/>
+  <path d="M50,86 Q100,50 150,86 L150,74 Q100,42 50,74 Z" fill="var(--ink)"/>
+  <path d="M96,40 L86,16 L104,38 Z" fill="var(--ink)"/>
+  <polygon points="66,152 134,152 150,182 50,182" fill="var(--surface)" stroke="var(--ink)" stroke-width="4"/>
+  <path d="M100,152 L112,168 L100,178 L88,168 Z" fill="var(--amber)"/>
+  <path d="M66,104 Q78,92 90,104" fill="none" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M110,104 Q122,92 134,104" fill="none" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round"/>
+  <ellipse cx="70" cy="130" rx="11" ry="6" fill="var(--coral)" opacity=".45"/>
+  <ellipse cx="130" cy="130" rx="11" ry="6" fill="var(--coral)" opacity=".45"/>
+  <path d="M78,138 Q100,158 122,138 Q100,150 78,138 Z" fill="var(--ink)"/>
+</symbol>
+</defs>
+</svg>
+
+<header class="hero">
+  <div class="hero-badge">學測數學漫畫系列</div>
+  <h1 class="hero-title">每個單元一話,<br><span class="accent">五分鐘讀懂</span>學測數學</h1>
+  <p class="hero-sub">用貓頭鷹教授與小莊的對話漫畫,把課本重點變成好讀的圖文電子書,附互動小測驗。</p>
+  <div class="hero-cast">
+    <figure><svg class="char" viewBox="0 0 200 200"><use href="#student-happy"/></svg><figcaption>小莊</figcaption></figure>
+    <figure><svg class="char" viewBox="0 0 200 200"><use href="#owl-cheer"/></svg><figcaption>貓頭鷹教授</figcaption></figure>
+  </div>
+  <p class="hero-note">點選下方任一單元開始閱讀 ↓</p>
+</header>
+
+<div class="wrap">
+
+  <div class="section-title">共同科(高一・數A / 數B 皆考)</div>
+  <div class="grid">
+    <a class="card" href="數與式漫遊記.html"><span class="num">CH.01</span><div class="title">數與式</div></a>
+    <a class="card" href="多項式漫遊記.html"><span class="num">CH.02</span><div class="title">多項式的運算與應用</div></a>
+    <a class="card" href="直線與圓漫遊記.html"><span class="num">CH.03</span><div class="title">直線與圓</div></a>
+    <a class="card" href="數列與級數漫遊記.html"><span class="num">CH.04</span><div class="title">數列與級數</div></a>
+    <a class="card" href="排列組合漫遊記.html"><span class="num">CH.05</span><div class="title">排列組合</div></a>
+    <a class="card" href="機率漫遊記.html"><span class="num">CH.06</span><div class="title">機率</div></a>
+    <a class="card" href="數據分析漫遊記.html"><span class="num">CH.07</span><div class="title">數據分析</div></a>
+  </div>
+
+  <div class="section-title">共同起點(高二)</div>
+  <div class="grid">
+    <a class="card" href="三角比漫遊記.html"><span class="num">CH.08</span><div class="title">三角比</div></a>
+  </div>
+
+  <div class="section-title">數A軌(高二・自然/理工組)</div>
+  <div class="grid">
+    <a class="card" href="三角函數漫遊記.html"><span class="num">A-09</span><div class="title">三角函數(疊合)</div></a>
+    <a class="card" href="指數對數漫遊記.html"><span class="num">A-10</span><div class="title">指數與對數函數</div></a>
+    <div class="card lock"><span class="badge">🔒</span><span class="num">A-11</span><div class="title">平面向量</div></div>
+    <div class="card lock"><span class="badge">🔒</span><span class="num">A-12</span><div class="title">空間向量</div></div>
+    <div class="card lock"><span class="badge">🔒</span><span class="num">A-13</span><div class="title">空間中的平面與直線</div></div>
+    <div class="card lock"><span class="badge">🔒</span><span class="num">A-14</span><div class="title">矩陣</div></div>
+    <div class="card lock"><span class="badge">🔒</span><span class="num">A-15</span><div class="title">機率與統計</div></div>
+  </div>
+
+  <div class="section-title b">數B軌(高二・社會/人文組)</div>
+  <div class="grid">
+    <div class="card lock"><span class="badge">🔒</span><span class="num">B-09</span><div class="title">指數與對數函數</div></div>
+    <div class="card lock"><span class="badge">🔒</span><span class="num">B-10</span><div class="title">平面向量</div></div>
+    <div class="card lock"><span class="badge">🔒</span><span class="num">B-11</span><div class="title">幾何與證明</div></div>
+    <div class="card lock"><span class="badge">🔒</span><span class="num">B-12</span><div class="title">空間與圖形</div></div>
+    <div class="card lock"><span class="badge">🔒</span><span class="num">B-13</span><div class="title">向量與幾何</div></div>
+    <div class="card lock"><span class="badge">🔒</span><span class="num">B-14</span><div class="title">導函數與積分初步</div></div>
+    <div class="card lock"><span class="badge">🔒</span><span class="num">B-15</span><div class="title">生活中的統計與機率</div></div>
+  </div>
+
+</div>
+
+<footer>
+  <svg class="char" viewBox="0 0 200 200"><use href="#owl-cheer"/></svg>
+  <p>系列持續更新中,下一話:三角比</p>
+</footer>
+
+</body>
+</html>

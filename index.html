@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
@@ -61,7 +61,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-bo
   font-family:var(--font-display);font-weight:600;font-size:clamp(1rem,2.4vw,1.25rem);
   color:var(--ink-soft);max-width:44ch;margin:0 0 30px;
 }
-.hero-cast{display:flex;justify-content:center;align-items:flex-end;gap:32px;margin-bottom:20px;}
+.hero-cast{display:flex;justify-content:center;align-items:flex-end;gap:22px;flex-wrap:wrap;margin-bottom:20px;}
 .hero-cast figure{margin:0;text-align:center;}
 .hero-cast .char{width:120px;height:120px;}
 .hero-cast figcaption{font-size:.82rem;font-weight:700;color:var(--ink-soft);margin-top:6px;}
@@ -132,19 +132,46 @@ a:focus-visible{outline:3px solid var(--coral);outline-offset:2px;}
 </symbol>
 <symbol id="student-happy" viewBox="0 0 200 200">
   <ellipse cx="100" cy="186" rx="52" ry="7" fill="var(--shadow-ink)"/>
-  <path d="M42,110 Q34,45 100,38 Q166,45 158,110 Q164,150 142,158 L58,158 Q36,150 42,110 Z" fill="var(--ink)"/>
+  <path d="M45,100 Q36,45 100,38 Q164,45 155,100 Q153,115 144,110 Q148,68 100,58 Q52,68 56,110 Q47,115 45,100 Z" fill="var(--ink)"/>
   <circle cx="52" cy="118" r="9" fill="#FFD9B3"/>
   <circle cx="148" cy="118" r="9" fill="#FFD9B3"/>
   <circle cx="100" cy="112" r="52" fill="#FFD9B3"/>
   <path d="M50,86 Q100,50 150,86 L150,74 Q100,42 50,74 Z" fill="var(--ink)"/>
   <path d="M96,40 L86,16 L104,38 Z" fill="var(--ink)"/>
   <polygon points="66,152 134,152 150,182 50,182" fill="var(--surface)" stroke="var(--ink)" stroke-width="4"/>
-  <path d="M100,152 L112,168 L100,178 L88,168 Z" fill="var(--amber)"/>
+  <path d="M93,153 L107,153 L102,180 L98,180 Z" fill="var(--amber)"/>
   <path d="M66,104 Q78,92 90,104" fill="none" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round"/>
   <path d="M110,104 Q122,92 134,104" fill="none" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round"/>
-  <ellipse cx="70" cy="130" rx="11" ry="6" fill="var(--coral)" opacity=".45"/>
-  <ellipse cx="130" cy="130" rx="11" ry="6" fill="var(--coral)" opacity=".45"/>
   <path d="M78,138 Q100,158 122,138 Q100,150 78,138 Z" fill="var(--ink)"/>
+</symbol>
+<symbol id="coach-teach" viewBox="0 0 200 200">
+  <ellipse cx="100" cy="192" rx="44" ry="6" fill="var(--shadow-ink)"/>
+  <path d="M82,146 L78,184 L92,184 L96,146 Z" fill="#D9BE94" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M104,146 L108,184 L122,184 L118,146 Z" fill="#D9BE94" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+  <ellipse cx="83" cy="187" rx="11" ry="6" fill="var(--ink)"/>
+  <ellipse cx="117" cy="187" rx="11" ry="6" fill="var(--ink)"/>
+  <path d="M68,122 Q54,135 56,160 L68,160 Q66,138 78,124 Z" fill="var(--teal)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="62" cy="163" r="9" fill="#FFD9B3" stroke="var(--ink)" stroke-width="2.5"/>
+  <path d="M132,122 Q150,115 152,95 Q153,78 144,68 L134,74 Q142,82 141,96 Q140,110 124,116 Z" fill="var(--teal)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="139" cy="64" r="9" fill="#FFD9B3" stroke="var(--ink)" stroke-width="2.5"/>
+  <line x1="133" y1="56" x2="129" y2="48" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="139" y1="54" x2="139" y2="45" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="145" y1="56" x2="149" y2="48" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M68,150 Q66,116 100,113 Q134,116 132,150 L133,154 L67,154 Z" fill="var(--teal)" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M88,116 L100,133 L112,116 L107,114 L100,126 L93,114 Z" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+  <rect x="91" y="104" width="18" height="14" rx="4" fill="#FFD9B3"/>
+  <circle cx="100" cy="82" r="40" fill="#FFD9B3"/>
+  <circle cx="61" cy="84" r="6" fill="#FFD9B3"/>
+  <circle cx="139" cy="84" r="6" fill="#FFD9B3"/>
+  <path d="M62,70 Q58,45 100,40 Q142,45 138,70 Q132,50 122,58 L118,44 L110,56 L104,42 L100,56 L96,42 L90,56 L82,44 L78,58 Q68,50 62,70 Z" fill="var(--ink)"/>
+  <circle cx="82" cy="82" r="15" fill="none" stroke="var(--ink)" stroke-width="3.5"/>
+  <circle cx="118" cy="82" r="15" fill="none" stroke="var(--ink)" stroke-width="3.5"/>
+  <line x1="97" y1="82" x2="103" y2="82" stroke="var(--ink)" stroke-width="3.5"/>
+  <line x1="67" y1="79" x2="60" y2="75" stroke="var(--ink)" stroke-width="2.5"/>
+  <line x1="133" y1="79" x2="140" y2="75" stroke="var(--ink)" stroke-width="2.5"/>
+  <circle cx="82" cy="83" r="4" fill="var(--ink)"/>
+  <circle cx="118" cy="83" r="4" fill="var(--ink)"/>
+  <path d="M86,96 Q100,105 114,96" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
 </symbol>
 </defs>
 </svg>
@@ -156,6 +183,7 @@ a:focus-visible{outline:3px solid var(--coral);outline-offset:2px;}
   <div class="hero-cast">
     <figure><svg class="char" viewBox="0 0 200 200"><use href="#student-happy"/></svg><figcaption>小莊</figcaption></figure>
     <figure><svg class="char" viewBox="0 0 200 200"><use href="#owl-cheer"/></svg><figcaption>貓頭鷹教授</figcaption></figure>
+    <figure><svg class="char" viewBox="0 0 200 200"><use href="#coach-teach"/></svg><figcaption>莊老</figcaption></figure>
   </div>
   <p class="hero-note">點選下方任一單元開始閱讀 ↓</p>
 </header>
@@ -185,13 +213,13 @@ a:focus-visible{outline:3px solid var(--coral);outline-offset:2px;}
     <a class="card" href="平面向量漫遊記.html"><span class="num">A-11</span><div class="title">平面向量</div></a>
     <a class="card" href="空間向量漫遊記.html"><span class="num">A-12</span><div class="title">空間向量</div></a>
     <a class="card" href="空間平面與直線漫遊記.html"><span class="num">A-13</span><div class="title">空間中的平面與直線</div></a>
-    <div class="card lock"><span class="badge">🔒</span><span class="num">A-14</span><div class="title">矩陣</div></div>
-    <div class="card lock"><span class="badge">🔒</span><span class="num">A-15</span><div class="title">機率與統計</div></div>
+    <a class="card" href="矩陣漫遊記.html"><span class="num">A-14</span><div class="title">矩陣</div></a>
+    <a class="card" href="機率與統計漫遊記.html"><span class="num">A-15</span><div class="title">機率與統計</div></a>
   </div>
 
   <div class="section-title b">數B軌(高二・社會/人文組)</div>
   <div class="grid">
-    <div class="card lock"><span class="badge">🔒</span><span class="num">B-09</span><div class="title">指數與對數函數</div></div>
+    <a class="card" href="指數對數函數漫遊記.html"><span class="num">B-09</span><div class="title">指數與對數函數</div></a>
     <div class="card lock"><span class="badge">🔒</span><span class="num">B-10</span><div class="title">平面向量</div></div>
     <div class="card lock"><span class="badge">🔒</span><span class="num">B-11</span><div class="title">幾何與證明</div></div>
     <div class="card lock"><span class="badge">🔒</span><span class="num">B-12</span><div class="title">空間與圖形</div></div>
@@ -204,7 +232,7 @@ a:focus-visible{outline:3px solid var(--coral);outline-offset:2px;}
 
 <footer>
   <svg class="char" viewBox="0 0 200 200"><use href="#owl-cheer"/></svg>
-  <p>系列持續更新中,下一話:矩陣</p>
+  <p>數B軌正式開跑!系列持續更新中,下一話:平面向量(數B軌)</p>
 </footer>
 
 </body>

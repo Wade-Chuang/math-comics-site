@@ -1,4 +1,4 @@
-﻿<title>平面向量漫遊記</title>
+﻿<title>數列與級數漫遊記</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:ital,wght@0,600;1,500;1,700&display=swap" rel="stylesheet">
@@ -101,11 +101,14 @@ strong{color:var(--ink);}
 .callout.warn .callout-title{color:var(--coral-dark);}
 .callout.tip .callout-title{color:var(--teal-dark);}
 .callout p{margin:0;color:var(--ink);}
-.graph-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:18px;}
-@media (max-width:600px){.graph-grid{grid-template-columns:1fr;}}
-.graph-card{background:var(--surface-2);border:2.5px solid var(--ink);border-radius:12px;padding:14px;text-align:center;}
-.graph-card svg{width:100%;height:auto;}
-.graph-card .cap{font-family:var(--font-display);font-weight:700;font-size:.85rem;margin-top:8px;}
+.postcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px;}
+.postcard{background:var(--surface-2);border:2.5px dashed var(--ink);border-radius:12px;padding:16px;transform:rotate(var(--r,0deg));}
+.postcard:nth-child(1){--r:-1.5deg;}
+.postcard:nth-child(2){--r:1deg;}
+.postcard:nth-child(3){--r:-0.5deg;}
+.postcard .icon{font-family:var(--font-math);font-style:italic;font-weight:700;font-size:1.6rem;color:var(--coral-dark);}
+.postcard h4{font-family:var(--font-head);font-weight:900;font-size:1.02rem;margin:8px 0 6px;}
+.postcard p{font-size:.88rem;margin:0;color:var(--ink-soft);}
 .cheat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:18px;}
 .cheat-card{background:var(--ink);color:var(--paper);border-radius:12px;padding:16px;box-shadow:4px 4px 0 var(--amber);}
 .cheat-card .num{font-family:var(--font-display);font-weight:800;font-size:.78rem;color:var(--amber);letter-spacing:.06em;}
@@ -247,36 +250,34 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 
 <symbol id="student-shock" viewBox="0 0 200 200">
   <ellipse cx="100" cy="186" rx="52" ry="7" fill="var(--shadow-ink)"/>
-  <path d="M42,110 Q34,45 100,38 Q166,45 158,110 Q164,150 142,158 L58,158 Q36,150 42,110 Z" fill="var(--ink)"/>
+  <path d="M45,100 Q36,45 100,38 Q164,45 155,100 Q153,115 144,110 Q148,68 100,58 Q52,68 56,110 Q47,115 45,100 Z" fill="var(--ink)"/>
   <circle cx="52" cy="118" r="9" fill="#FFD9B3"/>
   <circle cx="148" cy="118" r="9" fill="#FFD9B3"/>
   <circle cx="100" cy="112" r="52" fill="#FFD9B3"/>
   <path d="M50,86 Q100,50 150,86 L150,74 Q100,42 50,74 Z" fill="var(--ink)"/>
   <path d="M96,40 L86,16 L104,38 Z" fill="var(--ink)"/>
   <polygon points="66,152 134,152 150,182 50,182" fill="var(--surface)" stroke="var(--ink)" stroke-width="4"/>
-  <path d="M100,152 L112,168 L100,178 L88,168 Z" fill="var(--coral)"/>
+  <path d="M93,153 L107,153 L102,180 L98,180 Z" fill="var(--coral)"/>
   <path d="M52,92 Q46,80 54,72" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
   <path d="M148,92 Q154,80 146,72" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
   <circle cx="78" cy="112" r="15" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
   <circle cx="122" cy="112" r="15" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
   <circle cx="78" cy="114" r="5" fill="var(--ink)"/>
   <circle cx="122" cy="114" r="5" fill="var(--ink)"/>
-  <ellipse cx="72" cy="132" rx="9" ry="5" fill="var(--coral)" opacity=".4"/>
-  <ellipse cx="128" cy="132" rx="9" ry="5" fill="var(--coral)" opacity=".4"/>
   <ellipse cx="100" cy="148" rx="13" ry="16" fill="var(--ink-soft)"/>
   <path d="M136,98 Q140,108 133,116 Q142,112 144,100 Z" fill="#4FA8E0"/>
 </symbol>
 
 <symbol id="student-confused" viewBox="0 0 200 200">
   <ellipse cx="100" cy="186" rx="52" ry="7" fill="var(--shadow-ink)"/>
-  <path d="M42,110 Q34,45 100,38 Q166,45 158,110 Q164,150 142,158 L58,158 Q36,150 42,110 Z" fill="var(--ink)"/>
+  <path d="M45,100 Q36,45 100,38 Q164,45 155,100 Q153,115 144,110 Q148,68 100,58 Q52,68 56,110 Q47,115 45,100 Z" fill="var(--ink)"/>
   <circle cx="52" cy="118" r="9" fill="#FFD9B3"/>
   <circle cx="148" cy="118" r="9" fill="#FFD9B3"/>
   <circle cx="100" cy="112" r="52" fill="#FFD9B3"/>
   <path d="M50,86 Q100,50 150,86 L150,74 Q100,42 50,74 Z" fill="var(--ink)"/>
   <path d="M96,40 L86,16 L104,38 Z" fill="var(--ink)"/>
   <polygon points="66,152 134,152 150,182 50,182" fill="var(--surface)" stroke="var(--ink)" stroke-width="4"/>
-  <path d="M100,152 L112,168 L100,178 L88,168 Z" fill="var(--teal)"/>
+  <path d="M93,153 L107,153 L102,180 L98,180 Z" fill="var(--teal)"/>
   <path d="M50,94 Q60,88 68,92" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
   <path d="M132,88 Q142,96 150,92" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
   <circle cx="78" cy="110" r="8" fill="var(--ink)"/>
@@ -287,31 +288,29 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 
 <symbol id="student-happy" viewBox="0 0 200 200">
   <ellipse cx="100" cy="186" rx="52" ry="7" fill="var(--shadow-ink)"/>
-  <path d="M42,110 Q34,45 100,38 Q166,45 158,110 Q164,150 142,158 L58,158 Q36,150 42,110 Z" fill="var(--ink)"/>
+  <path d="M45,100 Q36,45 100,38 Q164,45 155,100 Q153,115 144,110 Q148,68 100,58 Q52,68 56,110 Q47,115 45,100 Z" fill="var(--ink)"/>
   <circle cx="52" cy="118" r="9" fill="#FFD9B3"/>
   <circle cx="148" cy="118" r="9" fill="#FFD9B3"/>
   <circle cx="100" cy="112" r="52" fill="#FFD9B3"/>
   <path d="M50,86 Q100,50 150,86 L150,74 Q100,42 50,74 Z" fill="var(--ink)"/>
   <path d="M96,40 L86,16 L104,38 Z" fill="var(--ink)"/>
   <polygon points="66,152 134,152 150,182 50,182" fill="var(--surface)" stroke="var(--ink)" stroke-width="4"/>
-  <path d="M100,152 L112,168 L100,178 L88,168 Z" fill="var(--amber)"/>
+  <path d="M93,153 L107,153 L102,180 L98,180 Z" fill="var(--amber)"/>
   <path d="M66,104 Q78,92 90,104" fill="none" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round"/>
   <path d="M110,104 Q122,92 134,104" fill="none" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round"/>
-  <ellipse cx="70" cy="130" rx="11" ry="6" fill="var(--coral)" opacity=".45"/>
-  <ellipse cx="130" cy="130" rx="11" ry="6" fill="var(--coral)" opacity=".45"/>
   <path d="M78,138 Q100,158 122,138 Q100,150 78,138 Z" fill="var(--ink)"/>
 </symbol>
 
 <symbol id="student-focus" viewBox="0 0 200 200">
   <ellipse cx="100" cy="186" rx="52" ry="7" fill="var(--shadow-ink)"/>
-  <path d="M42,110 Q34,45 100,38 Q166,45 158,110 Q164,150 142,158 L58,158 Q36,150 42,110 Z" fill="var(--ink)"/>
+  <path d="M45,100 Q36,45 100,38 Q164,45 155,100 Q153,115 144,110 Q148,68 100,58 Q52,68 56,110 Q47,115 45,100 Z" fill="var(--ink)"/>
   <circle cx="52" cy="118" r="9" fill="#FFD9B3"/>
   <circle cx="148" cy="118" r="9" fill="#FFD9B3"/>
   <circle cx="100" cy="112" r="52" fill="#FFD9B3"/>
   <path d="M50,86 Q100,50 150,86 L150,74 Q100,42 50,74 Z" fill="var(--ink)"/>
   <path d="M96,40 L86,16 L104,38 Z" fill="var(--ink)"/>
   <polygon points="66,152 134,152 150,182 50,182" fill="var(--surface)" stroke="var(--ink)" stroke-width="4"/>
-  <path d="M100,152 L112,168 L100,178 L88,168 Z" fill="var(--coral)"/>
+  <path d="M93,153 L107,153 L102,180 L98,180 Z" fill="var(--coral)"/>
   <path d="M62,96 L92,100" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
   <path d="M138,96 L108,100" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
   <circle cx="78" cy="112" r="8" fill="var(--ink)"/>
@@ -353,13 +352,13 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 
 <nav class="nav">
   <div class="nav-inner">
-    <span class="nav-logo"><span class="dot"></span>平面向量漫遊記</span>
+    <span class="nav-logo"><span class="dot"></span>數列與級數漫遊記</span>
     <div class="nav-links">
       <a href="#prologue">序章</a>
-      <a href="#basics">向量基本運算</a>
-      <a href="#dot">內積</a>
-      <a href="#determinant">行列式與面積</a>
-      <a href="#examples">實戰演練</a>
+      <a href="#arithmetic">等差數列</a>
+      <a href="#geometric">等比數列</a>
+      <a href="#infinite">無窮級數</a>
+      <a href="#induction">數學歸納法</a>
       <a href="#quiz">小測驗</a>
     </div>
   </div>
@@ -367,17 +366,17 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 
 <header class="cover" id="cover">
   <div class="cover-inner">
-    <div class="cover-badge">學測數學漫畫 · 數A軌 A-11</div>
-    <h1 class="cover-title">平面向量<br><span class="accent">漫遊記</span></h1>
-    <p class="cover-sub">內積一算,角度、垂直、投影全部現形</p>
+    <div class="cover-badge">學測數學漫畫 · 共同科 Ch.04</div>
+    <h1 class="cover-title">數列與級數<br><span class="accent">漫遊記</span></h1>
+    <p class="cover-sub">一格米粒翻倍64次,國王的糧倉都不夠裝</p>
     <div class="cover-cast">
       <figure><svg class="char" viewBox="0 0 200 200"><use href="#student-focus"/></svg><figcaption>小莊</figcaption></figure>
       <figure><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><figcaption>貓頭鷹教授</figcaption></figure>
       <figure><svg class="char" viewBox="0 0 200 200"><use href="#coach-teach"/></svg><figcaption>莊老</figcaption></figure>
     </div>
     <a class="cover-cta" href="#prologue">開始閱讀 →</a>
-    <p class="cover-meta">學測數學漫畫系列・數A軌 A-11・平面向量</p>
-    <p class="cover-prev">← <a href="三角比漫遊記.html">回顧 Ch.08:三角比漫遊記</a></p>
+    <p class="cover-meta">學測數學漫畫系列・共同科 Ch.04・數列與級數</p>
+    <p class="cover-prev">← <a href="直線與圓漫遊記.html">回顧 Ch.03:直線與圓漫遊記</a></p>
   </div>
 </header>
 
@@ -386,15 +385,15 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 <section id="prologue">
 <div class="panel">
   <span class="eyebrow">序章</span>
-  <h2 class="head">兩支箭頭,能不能不算角度就知道垂直?</h2>
+  <h2 class="head">西洋棋盤上的米粒陷阱</h2>
   <div class="strip">
     <div class="beat">
       <svg class="char" viewBox="0 0 200 200"><use href="#student-confused"/></svg>
-      <div class="bubble"><span class="who">小莊</span><p>教授,要判斷兩個向量垂不垂直,難道要先算出夾角,再看是不是90°嗎?感覺好麻煩。</p></div>
+      <div class="bubble"><span class="who">小莊</span><p>教授,有個古老傳說:發明西洋棋的人跟國王說,第1格放1粒米,第2格放2粒,第3格放4粒,每格都是前一格的兩倍,一直放到第64格。國王覺得沒多少,就答應了……結果呢?</p></div>
     </div>
     <div class="beat right">
       <svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg>
-      <div class="bubble teal"><span class="who">貓頭鷹教授</span><p>完全不用!向量有一個神奇的運算叫「內積」,兩個向量做內積,結果如果剛好是0,就直接證明它們垂直——連角度都不用算。今天帶你解鎖這個超能力。</p></div>
+      <div class="bubble teal"><span class="who">貓頭鷹教授</span><p>結果國王的糧倉全部加起來都不夠!因為總米粒數是 2⁶⁴−1,大約是1800京粒——這就是「等比級數」的威力。今天帶你認識數列與級數的所有規則。</p></div>
     </div>
   </div>
 </div>
@@ -403,61 +402,80 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 <section id="basics">
 <div class="panel">
   <span class="eyebrow">概念一</span>
-  <h2 class="head">向量的基本運算</h2>
-  <p>向量是「有大小、有方向」的量,通常用箭頭表示。只要大小和方向相同,不管畫在哪裡都是同一個向量。</p>
+  <h2 class="head">數列是什麼?</h2>
+  <p>數列就是一串按照順序排列的數字,每一項用 aₙ 表示,n 是項數(第幾項)。</p>
   <div class="formula-grid">
-    <div class="formula-card"><span class="tag">分量表示</span><div class="formula" style="font-size:1.05rem;">AB向量=(x₂−x₁, y₂−y₁)</div><div class="formula-note">A(x₁,y₁)、B(x₂,y₂)</div></div>
-    <div class="formula-card"><span class="tag">長度</span><div class="formula">|v|<span class="op">=</span>√(x²+y²)</div></div>
-    <div class="formula-card"><span class="tag">加法</span><div class="formula" style="font-size:1.05rem;">首尾相接(三角形法則)</div></div>
-    <div class="formula-card"><span class="tag">實數積</span><div class="formula">kv<span class="op">=</span>(kx, ky)</div><div class="formula-note">k&gt;0同方向,k&lt;0反方向</div></div>
+    <div class="formula-card"><span class="tag">一般項</span><div class="formula">a₁, a₂, a₃, ..., aₙ</div><div class="formula-note">依照某個規律排列的數列</div></div>
+    <div class="formula-card"><span class="tag">級數</span><div class="formula">Sₙ<span class="op">=</span>a₁+a₂+...+aₙ</div><div class="formula-note">數列前n項的總和</div></div>
+  </div>
+</div>
+</section>
+
+<section id="arithmetic">
+<div class="panel">
+  <span class="eyebrow">概念二</span>
+  <h2 class="head">等差數列:每次加一個固定的數</h2>
+  <div class="formula-grid">
+    <div class="formula-card"><span class="tag">通項公式</span><div class="formula">aₙ<span class="op">=</span>a₁+(n−1)d</div><div class="formula-note">d 是公差</div></div>
+    <div class="formula-card"><span class="tag">等差中項</span><div class="formula">b<span class="op">=</span>(a+c)/2</div><div class="formula-note">a,b,c成等差時</div></div>
+    <div class="formula-card" style="grid-column:1/-1;text-align:center;"><span class="tag">等差級數和</span><div class="formula" style="font-size:1.35rem;">Sₙ<span class="op">=</span>n(a₁+aₙ)/2</div></div>
+  </div>
+</div>
+</section>
+
+<section id="geometric">
+<div class="panel">
+  <span class="eyebrow">概念三</span>
+  <h2 class="head">等比數列:每次乘一個固定的數</h2>
+  <div class="formula-grid">
+    <div class="formula-card"><span class="tag">通項公式</span><div class="formula">aₙ<span class="op">=</span>a₁·r<sup>n−1</sup></div><div class="formula-note">r 是公比</div></div>
+    <div class="formula-card"><span class="tag">等比中項</span><div class="formula">b²<span class="op">=</span>ac</div><div class="formula-note">a,b,c成等比時</div></div>
+    <div class="formula-card" style="grid-column:1/-1;text-align:center;"><span class="tag">等比級數和(r≠1)</span><div class="formula" style="font-size:1.35rem;">Sₙ<span class="op">=</span>a₁(1−r<sup>n</sup>)/(1−r)</div></div>
   </div>
   <div class="callout warn">
     <svg class="char" viewBox="0 0 200 200"><use href="#owl-alert"/></svg>
-    <div><span class="callout-title">AB向量 ≠ BA向量</span><p>方向相反的向量不是同一個向量!AB向量 = −(BA向量),大小相同但方向相反,千萬別搞混。</p></div>
+    <div><span class="callout-title">r=1 時,公式會爆掉!</span><p>Sₙ=a₁(1−rⁿ)/(1−r) 這個公式在 r=1 時分母是 0,完全不能用!這種情況要另外處理:每一項都相同,所以 Sₙ=n·a₁。</p></div>
   </div>
 </div>
 </section>
 
-<section id="dot">
+<section id="infinite">
 <div class="panel">
-  <span class="eyebrow">概念二</span>
-  <h2 class="head">內積:向量界的垂直偵測器</h2>
+  <span class="eyebrow">概念四</span>
+  <h2 class="head">無窮等比級數:加到永遠,和卻是有限的</h2>
   <div class="formula-grid">
     <div class="formula-card" style="grid-column:1/-1;text-align:center;">
-      <span class="tag">幾何定義</span>
-      <div class="formula" style="font-size:1.35rem;">a·b <span class="op">=</span> |a||b|cosθ</div>
+      <span class="tag">收斂條件</span>
+      <div class="formula" style="font-size:1.3rem;">|r| <span class="op">&lt;</span> 1</div>
+      <div class="formula-note">公比絕對值小於1,無窮多項加起來才會收斂到一個定值</div>
     </div>
     <div class="formula-card" style="grid-column:1/-1;text-align:center;">
-      <span class="tag">分量計算</span>
-      <div class="formula" style="font-size:1.35rem;">a·b <span class="op">=</span> x₁x₂ <span class="op">+</span> y₁y₂</div>
-      <div class="formula-note">a=(x₁,y₁), b=(x₂,y₂)</div>
-    </div>
-    <div class="formula-card" style="grid-column:1/-1;text-align:center;">
-      <span class="tag">垂直判斷</span>
-      <div class="formula" style="font-size:1.3rem;">a⊥b <span class="op">⟺</span> a·b <span class="op">=</span> 0</div>
+      <span class="tag">無窮等比級數和</span>
+      <div class="formula" style="font-size:1.35rem;">S <span class="op">=</span> a₁/(1−r)</div>
     </div>
   </div>
-  <div class="callout tip">
-    <svg class="char" viewBox="0 0 200 200"><use href="#owl-cheer"/></svg>
-    <div><span class="callout-title">內積的結果是「純量」,不是向量!</span><p>內積算出來就是一個實數(可正可負可為0),沒有方向。這跟向量加減法(結果還是向量)完全不一樣,是最多人搞混的地方。</p></div>
+  <div class="strip">
+    <div class="beat">
+      <svg class="char" viewBox="0 0 200 200"><use href="#student-focus"/></svg>
+      <div class="bubble"><span class="who">小莊</span><p>1/2 + 1/4 + 1/8 + 1/16 + ... 一直加下去,和會是多少?</p></div>
+    </div>
+    <div class="beat right">
+      <svg class="char" viewBox="0 0 200 200"><use href="#owl-cheer"/></svg>
+      <div class="bubble teal"><span class="who">貓頭鷹教授</span><p>a₁=1/2,r=1/2,|r|&lt;1收斂。S=(1/2)/(1−1/2)=(1/2)/(1/2)=1。加到永遠,結果剛好逼近1——這就是無窮等比級數迷人的地方。</p></div>
+    </div>
   </div>
 </div>
 </section>
 
-<section id="determinant">
+<section id="induction">
 <div class="panel">
-  <span class="eyebrow">概念三</span>
-  <h2 class="head">二階行列式與面積公式</h2>
+  <span class="eyebrow">概念五</span>
+  <h2 class="head">數學歸納法:骨牌式證明</h2>
+  <p>想像一排骨牌:只要第一張會倒,而且「任何一張倒了就會推倒下一張」,那所有骨牌最終都會倒。數學歸納法就是這個邏輯。</p>
   <div class="formula-grid">
-    <div class="formula-card" style="grid-column:1/-1;text-align:center;">
-      <span class="tag">二階行列式</span>
-      <div class="formula" style="font-size:1.3rem;">|a b; c d| <span class="op">=</span> ad <span class="op">−</span> bc</div>
-    </div>
-    <div class="formula-card" style="grid-column:1/-1;text-align:center;">
-      <span class="tag">三角形面積</span>
-      <div class="formula" style="font-size:1.3rem;">面積 <span class="op">=</span> (1/2)|x₁y₂ <span class="op">−</span> x₂y₁|</div>
-      <div class="formula-note">兩邊向量為(x₁,y₁)、(x₂,y₂),別忘了加絕對值!</div>
-    </div>
+    <div class="formula-card"><span class="tag">Step 1・基礎步驟</span><div class="formula" style="font-size:1.05rem;">驗證 n=1 時成立</div></div>
+    <div class="formula-card"><span class="tag">Step 2・歸納假設</span><div class="formula" style="font-size:1.05rem;">假設 n=k 時成立</div></div>
+    <div class="formula-card" style="grid-column:1/-1;"><span class="tag">Step 3・歸納推論</span><div class="formula" style="font-size:1.05rem;">證明 n=k+1 時也成立 ⟹ 對所有正整數n成立</div></div>
   </div>
 </div>
 </section>
@@ -465,18 +483,16 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 <section id="examples">
 <div class="panel">
   <span class="eyebrow">實戰演練</span>
-  <h2 class="head">用行列式秒殺三角形面積</h2>
+  <h2 class="head">用數學歸納法證明求和公式</h2>
   <div class="divwrap">
-    <div class="formula" style="white-space:normal;">求三角形 A(0,0)、B(4,0)、C(1,3) 的面積</div>
+    <div class="formula" style="white-space:normal;">證明:1+2+3+...+n = n(n+1)/2</div>
     <div class="formula-note">
-      Step 1 取共同頂點A為起點,寫出兩邊向量:AB=(4,0)、AC=(1,3)。<br>
-      Step 2 代入行列式:x₁y₂−x₂y₁ = 4×3 − 1×0 = 12。<br>
-      Step 3 面積 = (1/2)|12| = 6。
+      Step 1(基礎):n=1時,左邊=1,右邊=1(1+1)/2=1,成立。<br>
+      Step 2(假設):假設 n=k 時成立,即 1+2+...+k = k(k+1)/2。<br>
+      Step 3(推論):n=k+1時,左邊 = k(k+1)/2 + (k+1) = (k+1)(k/2+1) = (k+1)(k+2)/2,<br>
+      恰好等於公式代入 n=k+1 的結果,成立。<br>
+      結論:由數學歸納法,對所有正整數n,公式成立。
     </div>
-  </div>
-  <div class="callout tip">
-    <svg class="char" viewBox="0 0 200 200"><use href="#owl-cheer"/></svg>
-    <div><span class="callout-title">比海龍公式快多了</span><p>只要知道三個頂點座標,轉成兩個邊向量,直接套公式就好——不用先求三邊長、不用算半周長,是選擇題最快的解法。</p></div>
   </div>
 </div>
 </section>
@@ -486,12 +502,12 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
   <span class="eyebrow">重點整理</span>
   <h2 class="head">一頁記住所有公式</h2>
   <div class="cheat-grid">
-    <div class="cheat-card"><span class="num">VECTOR</span><div class="f">AB=(x₂−x₁,y₂−y₁)</div><div class="d">向量分量表示</div></div>
-    <div class="cheat-card"><span class="num">LENGTH</span><div class="f">|v|=√(x²+y²)</div><div class="d">向量長度</div></div>
-    <div class="cheat-card"><span class="num">DOT PRODUCT</span><div class="f">a·b=x₁x₂+y₁y₂</div><div class="d">內積分量式</div></div>
-    <div class="cheat-card"><span class="num">PERPENDICULAR</span><div class="f">a·b=0 ⟺ a⊥b</div><div class="d">垂直判斷</div></div>
-    <div class="cheat-card"><span class="num">DETERMINANT</span><div class="f">ad−bc</div><div class="d">二階行列式</div></div>
-    <div class="cheat-card"><span class="num">AREA</span><div class="f">(1/2)|x₁y₂−x₂y₁|</div><div class="d">三角形面積,別忘絕對值</div></div>
+    <div class="cheat-card"><span class="num">ARITHMETIC</span><div class="f">aₙ=a₁+(n−1)d</div><div class="d">等差數列通項</div></div>
+    <div class="cheat-card"><span class="num">ARITH SUM</span><div class="f">Sₙ=n(a₁+aₙ)/2</div><div class="d">等差級數和</div></div>
+    <div class="cheat-card"><span class="num">GEOMETRIC</span><div class="f">aₙ=a₁·r^(n−1)</div><div class="d">等比數列通項</div></div>
+    <div class="cheat-card"><span class="num">GEO SUM</span><div class="f">Sₙ=a₁(1−rⁿ)/(1−r)</div><div class="d">r≠1時的等比級數和</div></div>
+    <div class="cheat-card"><span class="num">INFINITE</span><div class="f">S=a₁/(1−r), |r|&lt;1</div><div class="d">無窮等比級數</div></div>
+    <div class="cheat-card"><span class="num">TRAP</span><div class="f">r=1時Sₙ=n·a₁</div><div class="d">公式分母為0要特判</div></div>
   </div>
 </div>
 </section>
@@ -503,23 +519,23 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
   <div class="strip">
     <div class="beat">
       <svg class="char" viewBox="0 0 200 200"><use href="#student-shock"/></svg>
-      <div class="bubble"><span class="who">小莊的答案</span><p>a=(2,3),b=(-3,2),算出a·b=0,所以a·b這個向量的方向就是……等等,它有方向嗎?</p></div>
+      <div class="bubble"><span class="who">小莊的答案</span><p>等比數列首項2,公比1,求前5項和——直接套Sₙ=a₁(1−rⁿ)/(1−r)=2(1−1)/(1−1)=0/0,算出來是0!</p></div>
     </div>
   </div>
   <div class="mistake-row">
     <div class="mistake-cell bad">
-      <span class="mistake-label">✕ 誤解</span>
-      <div class="formula" style="font-size:1rem;">把內積結果當成向量,想找方向</div>
+      <span class="mistake-label">✕ 硬套公式</span>
+      <div class="formula" style="font-size:1rem;">0/0,答案算成0</div>
     </div>
     <div class="mistake-cell good">
-      <span class="mistake-label">✓ 正確理解</span>
-      <div class="formula" style="font-size:1rem;">a·b=0是一個「數字」,代表兩向量垂直</div>
+      <span class="mistake-label">✓ 正確做法</span>
+      <div class="formula" style="font-size:1rem;">r=1時,Sₙ=n·a₁=5×2=10</div>
     </div>
   </div>
   <div class="strip">
     <div class="beat right">
       <svg class="char" viewBox="0 0 200 200"><use href="#owl-alert"/></svg>
-      <div class="bubble teal"><span class="who">貓頭鷹教授</span><p>內積永遠是一個「純量」(數字),不是向量,沒有方向可言!a·b=2×(−3)+3×2=−6+6=0,這個0直接告訴你a垂直於b,故事就結束了,不需要再找什麼方向。</p></div>
+      <div class="bubble teal"><span class="who">貓頭鷹教授</span><p>0/0 是「未定義」,不是0!公比r=1時,每一項都相同(2,2,2,2,2),前5項和就是單純的5×2=10。看到公比是1,腦中要立刻切換成「n乘以首項」這個特判公式。</p></div>
     </div>
   </div>
 </div>
@@ -530,46 +546,46 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
   <span class="eyebrow">隨堂小測驗</span>
   <h2 class="head">換你上場!挑戰 4 題</h2>
 
-  <div class="quiz-card" data-answer="0" data-explain="AB=(4−1,6−2)=(3,4),|AB|=√(9+16)=√25=5。">
-    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q1.</span> A(1,2), B(4,6), 求|AB|=?</div></div>
+  <div class="quiz-card" data-answer="0" data-explain="a10=a1+(10−1)d=3+9×4=3+36=39。">
+    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q1.</span> 等差數列首項3,公差4,求第10項?</div></div>
     <div class="quiz-opts">
-      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>5</button>
-      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>7</button>
-      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>√7</button>
-      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>25</button>
+      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>39</button>
+      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>36</button>
+      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>43</button>
+      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>40</button>
     </div>
     <div class="quiz-feedback"></div>
   </div>
 
-  <div class="quiz-card" data-answer="0" data-explain="a·b=2×(−3)+3×2=−6+6=0。">
-    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q2.</span> a=(2,3), b=(−3,2), 求a·b=?</div></div>
+  <div class="quiz-card" data-answer="0" data-explain="S4=a1(1−r⁴)/(1−r)=2(1−81)/(1−3)=2(−80)/(−2)=80。">
+    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q2.</span> 等比數列首項2,公比3,求前4項和?</div></div>
     <div class="quiz-opts">
-      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>0</button>
-      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>12</button>
-      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>−12</button>
-      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>5</button>
+      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>80</button>
+      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>81</button>
+      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>40</button>
+      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>79</button>
     </div>
     <div class="quiz-feedback"></div>
   </div>
 
-  <div class="quiz-card" data-answer="0" data-explain="因為a·b=0,由垂直判斷公式,a與b垂直。">
-    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q3.</span> 承上題,a與b的關係為?</div></div>
+  <div class="quiz-card" data-answer="0" data-explain="|r|=1/2<1,收斂。S=a1/(1−r)=5/(1−1/2)=5/(1/2)=10。">
+    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q3.</span> 無窮等比級數首項5,公比1/2,求無窮和?</div></div>
     <div class="quiz-opts">
-      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>垂直</button>
-      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>平行</button>
-      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>長度相等</button>
-      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>無法判斷</button>
+      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>10</button>
+      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>5</button>
+      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>15</button>
+      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>20</button>
     </div>
     <div class="quiz-feedback"></div>
   </div>
 
-  <div class="quiz-card" data-answer="1" data-explain="A錯:內積的結果是純量(一個數字),不是向量;B對:兩個非零向量內積為0,就是互相垂直的定義;C錯:AB向量與BA向量方向相反,AB=−BA,不是同一個向量;D錯:三角形面積公式一定要加絕對值,否則頂點順序不同會得到負值。">
+  <div class="quiz-card" data-answer="1" data-explain="A錯:r=1時Sn=a1(1−rⁿ)/(1−r)分母為0,不能套用,要改用Sn=n·a1;B對:|r|<1正是無窮等比級數收斂的條件;C錯:那是等差中項公式,等比中項應該是b²=ac;D錯:數學歸納法必須同時完成基礎步驟與歸納步驟,缺一不可。">
     <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-alert"/></svg><div class="qtext"><span class="qnum">Q4.</span> 下列敘述何者正確?</div></div>
     <div class="quiz-opts">
-      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>a·b的結果是一個向量</button>
-      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>若a·b=0,則a⊥b</button>
-      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>向量AB與BA是同一個向量</button>
-      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>三角形面積公式不需要加絕對值</button>
+      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>r=1時可直接套用Sn=a1(1−rⁿ)/(1−r)</button>
+      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>無窮等比級數收斂的條件是|r|&lt;1</button>
+      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>a,b,c成等比數列則b=(a+c)/2</button>
+      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>數學歸納法只需驗證n=1成立即可</button>
     </div>
     <div class="quiz-feedback"></div>
   </div>
@@ -580,14 +596,14 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 <div class="panel">
   <span class="eyebrow">下一話預告</span>
   <h2 class="head">學測數學漫畫系列・全單元地圖</h2>
-  <p>數A軌進度 3/8!接下來是空間向量。</p>
+  <p>共同科進度 4/7!接下來是排列組合。</p>
 
   <div class="track-label">共同科(高一・數A / 數B 皆考)</div>
   <div class="roadmap">
     <a class="roadmap-item done" href="數與式漫遊記.html"><span class="rn">01</span><div class="rt">數與式</div></a>
     <a class="roadmap-item done" href="多項式漫遊記.html"><span class="rn">02</span><div class="rt">多項式的運算與應用</div></a>
     <a class="roadmap-item done" href="直線與圓漫遊記.html"><span class="rn">03</span><div class="rt">直線與圓</div></a>
-    <a class="roadmap-item done" href="數列與級數漫遊記.html"><span class="rn">04</span><div class="rt">數列與級數</div></a>
+    <div class="roadmap-item active"><span class="rn">04</span><div class="rt">數列與級數</div></div>
     <a class="roadmap-item done" href="排列組合漫遊記.html"><span class="rn">05</span><div class="rt">排列組合</div></a>
     <a class="roadmap-item done" href="機率漫遊記.html"><span class="rn">06</span><div class="rt">機率</div></a>
     <a class="roadmap-item done" href="數據分析漫遊記.html"><span class="rn">07</span><div class="rt">數據分析</div></a>
@@ -602,7 +618,7 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
   <div class="roadmap">
     <a class="roadmap-item done" href="三角函數漫遊記.html"><span class="rn">A-09</span><div class="rt">三角函數(疊合)</div></a>
     <a class="roadmap-item done" href="指數對數漫遊記.html"><span class="rn">A-10</span><div class="rt">指數與對數函數</div></a>
-    <div class="roadmap-item active"><span class="rn">A-11</span><div class="rt">平面向量</div></div>
+    <a class="roadmap-item done" href="平面向量漫遊記.html"><span class="rn">A-11</span><div class="rt">平面向量</div></a>
     <a class="roadmap-item done" href="空間向量漫遊記.html"><span class="rn">A-12</span><div class="rt">空間向量</div></a>
     <a class="roadmap-item done" href="空間平面與直線漫遊記.html"><span class="rn">A-13</span><div class="rt">空間中的平面與直線</div></a>
     <a class="roadmap-item done" href="矩陣漫遊記.html"><span class="rn">A-14</span><div class="rt">矩陣</div></a>
@@ -611,7 +627,7 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 
   <div class="track-label">數B軌(高二・社會/人文組)</div>
   <div class="roadmap">
-    <div class="roadmap-item"><span class="lock">🔒</span><span class="rn">B-09</span><div class="rt">指數與對數函數</div></div>
+    <a class="roadmap-item done" href="指數對數函數漫遊記.html"><span class="rn">B-09</span><div class="rt">指數與對數函數</div></a>
     <div class="roadmap-item"><span class="lock">🔒</span><span class="rn">B-10</span><div class="rt">平面向量</div></div>
     <div class="roadmap-item"><span class="lock">🔒</span><span class="rn">B-11</span><div class="rt">幾何與證明</div></div>
     <div class="roadmap-item"><span class="lock">🔒</span><span class="rn">B-12</span><div class="rt">空間與圖形</div></div>
@@ -626,8 +642,8 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 
 <footer>
   <svg class="char" viewBox="0 0 200 200"><use href="#owl-cheer"/></svg>
-  <p>內積判垂直、行列式算面積——這兩招把原本要畫圖才能解的幾何問題,變成純代數計算。</p>
-  <p style="margin-top:8px;">下一話,空間向量見!</p>
+  <p>等差看加法、等比看乘法,遇到r=1一定要特判,數學歸納法則是骨牌邏輯——四個觀念串起整個單元。</p>
+  <p style="margin-top:8px;">下一話,排列組合見!</p>
 </footer>
 
 <script>

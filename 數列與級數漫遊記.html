@@ -1,4 +1,4 @@
-<title>數列與級數漫遊記</title>
+﻿<title>數列與級數漫遊記</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:ital,wght@0,600;1,500;1,700&display=swap" rel="stylesheet">
@@ -67,7 +67,7 @@ strong{color:var(--ink);}
 .cover-title{font-family:var(--font-head);font-weight:900;font-size:clamp(2.6rem,9vw,5rem);line-height:1.05;text-wrap:balance;margin:0 0 6px;text-align:center;color:var(--ink);}
 .cover-title .accent{color:var(--coral);-webkit-text-stroke:2px var(--ink);}
 .cover-sub{text-align:center;font-family:var(--font-display);font-weight:600;font-size:clamp(1rem,2.6vw,1.35rem);color:var(--ink-soft);margin:0 0 34px;}
-.cover-cast{display:flex;justify-content:center;align-items:flex-end;gap:36px;margin:10px 0 30px;}
+.cover-cast{display:flex;justify-content:center;align-items:flex-end;gap:24px;flex-wrap:wrap;margin:10px 0 30px;}
 .cover-cast figure{margin:0;text-align:center;}
 .cover-cast .char{width:132px;height:132px;}
 .cover-cast figcaption{font-size:.85rem;font-weight:700;margin-top:6px;color:var(--ink-soft);}
@@ -322,6 +322,35 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
   <path d="M90,142 L110,142" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round"/>
 </symbol>
 
+<symbol id="coach-teach" viewBox="0 0 200 200">
+  <ellipse cx="100" cy="192" rx="44" ry="6" fill="var(--shadow-ink)"/>
+  <path d="M82,146 L78,184 L92,184 L96,146 Z" fill="#D9BE94" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M104,146 L108,184 L122,184 L118,146 Z" fill="#D9BE94" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+  <ellipse cx="83" cy="187" rx="11" ry="6" fill="var(--ink)"/>
+  <ellipse cx="117" cy="187" rx="11" ry="6" fill="var(--ink)"/>
+  <path d="M68,122 Q54,135 56,160 L68,160 Q66,138 78,124 Z" fill="var(--teal)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="62" cy="163" r="9" fill="#FFD9B3" stroke="var(--ink)" stroke-width="2.5"/>
+  <path d="M132,122 Q150,115 152,95 Q153,78 144,68 L134,74 Q142,82 141,96 Q140,110 124,116 Z" fill="var(--teal)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="139" cy="64" r="9" fill="#FFD9B3" stroke="var(--ink)" stroke-width="2.5"/>
+  <line x1="133" y1="56" x2="129" y2="48" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="139" y1="54" x2="139" y2="45" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="145" y1="56" x2="149" y2="48" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M68,150 Q66,116 100,113 Q134,116 132,150 L133,154 L67,154 Z" fill="var(--teal)" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M88,116 L100,133 L112,116 L107,114 L100,126 L93,114 Z" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+  <rect x="91" y="104" width="18" height="14" rx="4" fill="#FFD9B3"/>
+  <circle cx="100" cy="82" r="40" fill="#FFD9B3"/>
+  <circle cx="61" cy="84" r="6" fill="#FFD9B3"/>
+  <circle cx="139" cy="84" r="6" fill="#FFD9B3"/>
+  <path d="M62,70 Q58,45 100,40 Q142,45 138,70 Q132,50 122,58 L118,44 L110,56 L104,42 L100,56 L96,42 L90,56 L82,44 L78,58 Q68,50 62,70 Z" fill="var(--ink)"/>
+  <circle cx="82" cy="82" r="15" fill="none" stroke="var(--ink)" stroke-width="3.5"/>
+  <circle cx="118" cy="82" r="15" fill="none" stroke="var(--ink)" stroke-width="3.5"/>
+  <line x1="97" y1="82" x2="103" y2="82" stroke="var(--ink)" stroke-width="3.5"/>
+  <line x1="67" y1="79" x2="60" y2="75" stroke="var(--ink)" stroke-width="2.5"/>
+  <line x1="133" y1="79" x2="140" y2="75" stroke="var(--ink)" stroke-width="2.5"/>
+  <circle cx="82" cy="83" r="4" fill="var(--ink)"/>
+  <circle cx="118" cy="83" r="4" fill="var(--ink)"/>
+  <path d="M86,96 Q100,105 114,96" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+</symbol>
 </defs>
 </svg>
 
@@ -347,6 +376,7 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
     <div class="cover-cast">
       <figure><svg class="char" viewBox="0 0 200 200"><use href="#student-focus"/></svg><figcaption>小莊</figcaption></figure>
       <figure><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><figcaption>貓頭鷹教授</figcaption></figure>
+      <figure><svg class="char" viewBox="0 0 200 200"><use href="#coach-teach"/></svg><figcaption>莊老</figcaption></figure>
     </div>
     <a class="cover-cta" href="#prologue">開始閱讀 →</a>
     <p class="cover-meta">學測數學漫畫系列・共同科 Ch.04・數列與級數</p>
@@ -595,8 +625,8 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
     <a class="roadmap-item done" href="平面向量漫遊記.html"><span class="rn">A-11</span><div class="rt">平面向量</div></a>
     <a class="roadmap-item done" href="空間向量漫遊記.html"><span class="rn">A-12</span><div class="rt">空間向量</div></a>
     <a class="roadmap-item done" href="空間平面與直線漫遊記.html"><span class="rn">A-13</span><div class="rt">空間中的平面與直線</div></a>
-    <div class="roadmap-item"><span class="lock">🔒</span><span class="rn">A-14</span><div class="rt">矩陣</div></div>
-    <div class="roadmap-item"><span class="lock">🔒</span><span class="rn">A-15</span><div class="rt">機率與統計</div></div>
+    <a class="roadmap-item done" href="矩陣漫遊記.html"><span class="rn">A-14</span><div class="rt">矩陣</div></a>
+    <a class="roadmap-item done" href="機率與統計漫遊記.html"><span class="rn">A-15</span><div class="rt">機率與統計</div></a>
   </div>
 
   <div class="track-label">數B軌(高二・社會/人文組)</div>

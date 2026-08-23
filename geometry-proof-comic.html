@@ -1,4 +1,4 @@
-﻿<title>空間向量漫遊記</title>
+﻿<title>幾何與證明漫遊記</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:ital,wght@0,600;1,500;1,700&display=swap" rel="stylesheet">
@@ -101,15 +101,16 @@ strong{color:var(--ink);}
 .callout.warn .callout-title{color:var(--coral-dark);}
 .callout.tip .callout-title{color:var(--teal-dark);}
 .callout p{margin:0;color:var(--ink);}
-.graph-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:18px;}
-@media (max-width:600px){.graph-grid{grid-template-columns:1fr;}}
-.graph-card{background:var(--surface-2);border:2.5px solid var(--ink);border-radius:12px;padding:14px;text-align:center;}
-.graph-card svg{width:100%;height:auto;}
-.graph-card .cap{font-family:var(--font-display);font-weight:700;font-size:.85rem;margin-top:8px;}
+.tablewrap{overflow-x:auto;margin:18px 0;border:2.5px solid var(--ink);border-radius:12px;}
+table.dist-table{border-collapse:collapse;width:100%;min-width:360px;font-family:var(--font-math);}
+table.dist-table th, table.dist-table td{padding:10px 14px;text-align:center;border-bottom:1.5px solid var(--paper-alt);font-size:1rem;}
+table.dist-table th{background:var(--ink);color:var(--paper);font-family:var(--font-display);font-style:normal;font-weight:700;font-size:.82rem;letter-spacing:.03em;}
+table.dist-table tr:last-child td{border-bottom:none;}
+table.dist-table td:first-child, table.dist-table th:first-child{font-weight:700;background:var(--paper-alt);}
 .cheat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:18px;}
 .cheat-card{background:var(--ink);color:var(--paper);border-radius:12px;padding:16px;box-shadow:4px 4px 0 var(--amber);}
 .cheat-card .num{font-family:var(--font-display);font-weight:800;font-size:.78rem;color:var(--amber);letter-spacing:.06em;}
-.cheat-card .f{font-family:var(--font-math);font-style:italic;font-size:1.15rem;margin:8px 0 6px;}
+.cheat-card .f{font-family:var(--font-math);font-style:italic;font-size:1.1rem;margin:8px 0 6px;}
 .cheat-card .d{font-size:.8rem;opacity:.82;}
 .mistake-row{display:grid;grid-template-columns:1fr 1fr;gap:0;border:3px solid var(--ink);border-radius:12px;overflow:hidden;margin:18px 0;}
 @media (max-width:560px){.mistake-row{grid-template-columns:1fr;}}
@@ -150,6 +151,8 @@ strong{color:var(--ink);}
 .roadmap-item .lock{position:absolute;top:10px;right:12px;font-size:.9rem;opacity:.6;}
 .track-label{font-family:var(--font-display);font-weight:700;font-size:.8rem;color:var(--ink-soft);margin:22px 0 4px;text-transform:uppercase;letter-spacing:.06em;}
 .divwrap{background:var(--surface-2);border:2.5px solid var(--ink);border-radius:12px;padding:18px 20px;margin:18px 0;overflow-x:auto;}
+.milestone{background:linear-gradient(135deg, var(--teal), var(--teal-dark));color:#fff;border-radius:14px;padding:20px 24px;margin:22px 0;text-align:center;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--amber);}
+.milestone .big{font-family:var(--font-display);font-weight:800;font-size:1.4rem;}
 footer{text-align:center;padding:50px 20px 70px;color:var(--ink-soft);font-size:.85rem;}
 footer .char{width:88px;height:88px;margin-bottom:14px;}
 a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-offset:2px;}
@@ -349,12 +352,12 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 
 <nav class="nav">
   <div class="nav-inner">
-    <span class="nav-logo"><span class="dot"></span>空間向量漫遊記</span>
+    <span class="nav-logo"><span class="dot"></span>幾何與證明漫遊記</span>
     <div class="nav-links">
       <a href="#prologue">序章</a>
-      <a href="#basics">空間坐標</a>
-      <a href="#dot">內積</a>
-      <a href="#cross">外積</a>
+      <a href="#congruence">三角形全等</a>
+      <a href="#similarity">三角形相似</a>
+      <a href="#circle">圓的性質</a>
       <a href="#examples">實戰演練</a>
       <a href="#quiz">小測驗</a>
     </div>
@@ -363,17 +366,17 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 
 <header class="cover" id="cover">
   <div class="cover-inner">
-    <div class="cover-badge">學測數學漫畫 · 數A軌 A-12</div>
-    <h1 class="cover-title">空間向量<br><span class="accent">漫遊記</span></h1>
-    <p class="cover-sub">外積一出手,同時垂直兩個方向的箭頭就出現了</p>
+    <div class="cover-badge">學測數學漫畫 · 數B軌 B-11</div>
+    <h1 class="cover-title">幾何與<br><span class="accent">證明</span></h1>
+    <p class="cover-sub">看起來理所當然的事,為什麼還要證明?</p>
     <div class="cover-cast">
       <figure><svg class="char" viewBox="0 0 200 200"><use href="#student-focus"/></svg><figcaption>小莊</figcaption></figure>
       <figure><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><figcaption>貓頭鷹教授</figcaption></figure>
       <figure><svg class="char" viewBox="0 0 200 200"><use href="#coach-teach"/></svg><figcaption>莊老</figcaption></figure>
     </div>
     <a class="cover-cta" href="#prologue">開始閱讀 →</a>
-    <p class="cover-meta">學測數學漫畫系列・數A軌 A-12・空間向量</p>
-    <p class="cover-prev">← <a href="平面向量漫遊記.html">回顧 A-11:平面向量漫遊記</a></p>
+    <p class="cover-meta">學測數學漫畫系列・數B軌 B-11・幾何與證明</p>
+    <p class="cover-prev">← <a href="向量與位移漫遊記.html">回顧 B-10:向量與位移漫遊記</a></p>
   </div>
 </header>
 
@@ -382,69 +385,63 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 <section id="prologue">
 <div class="panel">
   <span class="eyebrow">序章</span>
-  <h2 class="head">怎麼找出同時垂直兩支筆的第三支筆?</h2>
+  <h2 class="head">「看起來一樣」不等於「真的一樣」</h2>
   <div class="strip">
     <div class="beat">
       <svg class="char" viewBox="0 0 200 200"><use href="#student-confused"/></svg>
-      <div class="bubble"><span class="who">小莊</span><p>教授,平面向量的內積可以判斷垂不垂直。那如果我想要「造出」一個同時垂直於兩個向量的新向量,要怎麼做?</p></div>
+      <div class="bubble"><span class="who">小莊</span><p>教授,兩個三角形看起來明明就長得一模一樣,為什麼還要一步一步證明「全等」?用眼睛看不就好了嗎?</p></div>
     </div>
     <div class="beat right">
       <svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg>
-      <div class="bubble teal"><span class="who">貓頭鷹教授</span><p>這正是空間向量獨有的技能——「外積」!兩個向量做外積,算出來的結果本身就是一個向量,而且保證同時垂直於原本兩個向量。這是平面向量沒有、只有進入三維空間才會出現的新工具。</p></div>
+      <div class="bubble teal"><span class="who">貓頭鷹教授</span><p>眼睛會騙人!圖形可能故意畫得不精確,或者剛好某個角度接近但不完全相等。數學要的是「不管圖畫得多爛,邏輯上一定成立」的保證——這正是幾何證明存在的理由:用少數幾條公認的判定條件,推出「一定」而不是「看起來」。</p></div>
     </div>
   </div>
 </div>
 </section>
 
-<section id="basics">
+<section id="congruence">
 <div class="panel">
   <span class="eyebrow">概念一</span>
-  <h2 class="head">空間坐標系與向量基本運算</h2>
-  <p>把平面向量多加一個 z 軸,就成了空間向量——大部分規則直接延伸,只是多了一個分量。</p>
+  <h2 class="head">三角形全等的判定</h2>
+  <p>兩個三角形形狀大小完全相同就是「全等」。不用量完六個邊角,只要符合以下任一組合就能保證全等。</p>
   <div class="formula-grid">
-    <div class="formula-card"><span class="tag">分量表示</span><div class="formula" style="font-size:1.05rem;">AB=(x₂−x₁,y₂−y₁,z₂−z₁)</div></div>
-    <div class="formula-card"><span class="tag">長度</span><div class="formula">|v|<span class="op">=</span>√(x²+y²+z²)</div></div>
-    <div class="formula-card"><span class="tag">加減、實數積</span><div class="formula" style="font-size:1rem;">規則與平面向量完全相同</div><div class="formula-note">分量各自對應運算即可</div></div>
-  </div>
-</div>
-</section>
-
-<section id="dot">
-<div class="panel">
-  <span class="eyebrow">概念二</span>
-  <h2 class="head">空間向量的內積</h2>
-  <div class="formula-grid">
-    <div class="formula-card" style="grid-column:1/-1;text-align:center;">
-      <span class="tag">分量計算</span>
-      <div class="formula" style="font-size:1.35rem;">a·b <span class="op">=</span> x₁x₂ <span class="op">+</span> y₁y₂ <span class="op">+</span> z₁z₂</div>
-    </div>
-    <div class="formula-card" style="grid-column:1/-1;text-align:center;">
-      <span class="tag">垂直判斷</span>
-      <div class="formula" style="font-size:1.3rem;">a⊥b <span class="op">⟺</span> a·b <span class="op">=</span> 0</div>
-      <div class="formula-note">跟平面向量一模一樣,只是多算一項</div>
-    </div>
-  </div>
-</div>
-</section>
-
-<section id="cross">
-<div class="panel">
-  <span class="eyebrow">概念三</span>
-  <h2 class="head">外積:專屬於空間向量的招牌技</h2>
-  <div class="formula-grid">
-    <div class="formula-card" style="grid-column:1/-1;text-align:center;">
-      <span class="tag">外積公式</span>
-      <div class="formula" style="font-size:1.15rem;">a×b <span class="op">=</span> (y₁z₂−y₂z₁, z₁x₂−z₂x₁, x₁y₂−x₂y₁)</div>
-      <div class="formula-note">結果是一個「向量」,不是數字!</div>
-    </div>
-  </div>
-  <div class="formula-grid">
-    <div class="formula-card"><span class="tag">性質一</span><div class="formula" style="font-size:1rem;">a×b 同時垂直於 a 與 b</div></div>
-    <div class="formula-card"><span class="tag">性質二</span><div class="formula" style="font-size:1.05rem;">|a×b|=平行四邊形面積</div></div>
+    <div class="formula-card"><span class="tag">SSS</span><div class="formula" style="font-size:1.05rem;">三邊對應相等</div></div>
+    <div class="formula-card"><span class="tag">SAS</span><div class="formula" style="font-size:1.05rem;">兩邊夾一角對應相等</div></div>
+    <div class="formula-card"><span class="tag">ASA</span><div class="formula" style="font-size:1.05rem;">兩角夾一邊對應相等</div></div>
   </div>
   <div class="callout warn">
     <svg class="char" viewBox="0 0 200 200"><use href="#owl-alert"/></svg>
-    <div><span class="callout-title">外積不能交換順序!</span><p>a×b ≠ b×a,而是 a×b = −(b×a)!順序顛倒,方向就會相反。這跟內積(a·b=b·a,順序隨便換)完全不一樣,是最容易混淆的地方。</p></div>
+    <div><span class="callout-title">「兩邊+一個非夾角」(SSA)不能保證全等!</span><p>如果相等的角沒有夾在兩邊中間,同樣的條件可能畫出兩個不同形狀的三角形——SSA從來就不是全等判定條件,這是最容易誤用的地方。</p></div>
+  </div>
+</div>
+</section>
+
+<section id="similarity">
+<div class="panel">
+  <span class="eyebrow">概念二</span>
+  <h2 class="head">三角形相似:形狀一樣,大小可以不同</h2>
+  <div class="formula-grid">
+    <div class="formula-card"><span class="tag">AA相似</span><div class="formula" style="font-size:1.05rem;">兩角對應相等</div><div class="formula-note">兩角相等,第三角自動相等,形狀就固定了</div></div>
+    <div class="formula-card"><span class="tag">相似的核心性質</span><div class="formula" style="font-size:1.05rem;">對應角相等、對應邊成比例</div></div>
+  </div>
+  <div class="callout tip">
+    <svg class="char" viewBox="0 0 200 200"><use href="#owl-cheer"/></svg>
+    <div><span class="callout-title">相似三角形是「量不到的距離」的救星</span><p>只要能架出兩個相似三角形,再用「對應邊成比例」列一個等式,就能算出量不到的高度或距離——這是相似三角形在生活中最常見的應用。</p></div>
+  </div>
+</div>
+</section>
+
+<section id="circle">
+<div class="panel">
+  <span class="eyebrow">概念三</span>
+  <h2 class="head">圓的重要性質</h2>
+  <div class="formula-grid">
+    <div class="formula-card" style="grid-column:1/-1;text-align:center;">
+      <span class="tag">圓周角定理</span>
+      <div class="formula" style="font-size:1.1rem;">同弧所對的圓周角 <span class="op">=</span> 圓心角的一半</div>
+    </div>
+    <div class="formula-card"><span class="tag">直角推論</span><div class="formula" style="font-size:1.05rem;">直徑所對的圓周角 = 90°</div></div>
+    <div class="formula-card"><span class="tag">圓內接四邊形</span><div class="formula" style="font-size:1.05rem;">對角互補(相加=180°)</div></div>
   </div>
 </div>
 </section>
@@ -452,14 +449,14 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 <section id="examples">
 <div class="panel">
   <span class="eyebrow">實戰演練</span>
-  <h2 class="head">用外積求空間三角形面積</h2>
+  <h2 class="head">用影子量出樹有多高</h2>
   <div class="divwrap">
-    <div class="formula" style="white-space:normal;">O(0,0,0)、A(2,0,0)、B(1,3,0),求三角形OAB面積</div>
+    <div class="formula" style="white-space:normal;">同一時刻,一根1.5公尺長的木棍影子長2公尺;旁邊一棵樹的影子長10公尺,求樹高</div>
     <div class="formula-note">
-      Step 1 取兩邊向量:OA=(2,0,0)、OB=(1,3,0)。<br>
-      Step 2 代入外積公式:OA×OB = (0×0−0×3, 0×1−2×0, 2×3−0×1) = (0, 0, 6)。<br>
-      Step 3 求外積向量的長度:|OA×OB| = √(0²+0²+6²) = 6。<br>
-      Step 4 三角形面積 = (1/2)×6 = 3。
+      Step 1 同一時刻陽光照射角度相同,木棍與影子、樹與影子各自形成的直角三角形彼此相似(AA相似:都有一個直角,加上陽光射入角相同)。<br>
+      Step 2 列出對應邊成比例:樹高/木棍高 = 樹影長/木棍影長,也就是 樹高/1.5 = 10/2。<br>
+      Step 3 解方程式:樹高 = 1.5 × (10/2) = 1.5 × 5 = 7.5。<br>
+      Step 4 這棵樹大約高7.5公尺,完全不用爬上去量。
     </div>
   </div>
 </div>
@@ -468,14 +465,14 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 <section id="cheat-sheet">
 <div class="panel">
   <span class="eyebrow">重點整理</span>
-  <h2 class="head">一頁記住所有公式</h2>
+  <h2 class="head">一頁記住所有判定與性質</h2>
   <div class="cheat-grid">
-    <div class="cheat-card"><span class="num">VECTOR</span><div class="f">AB=(x₂−x₁,y₂−y₁,z₂−z₁)</div><div class="d">空間向量分量</div></div>
-    <div class="cheat-card"><span class="num">LENGTH</span><div class="f">|v|=√(x²+y²+z²)</div><div class="d">向量長度</div></div>
-    <div class="cheat-card"><span class="num">DOT PRODUCT</span><div class="f">a·b=x₁x₂+y₁y₂+z₁z₂</div><div class="d">內積,結果是純量</div></div>
-    <div class="cheat-card"><span class="num">CROSS PRODUCT</span><div class="f">a×b=(y₁z₂−y₂z₁,z₁x₂−z₂x₁,x₁y₂−x₂y₁)</div><div class="d">外積,結果是向量</div></div>
-    <div class="cheat-card"><span class="num">AREA</span><div class="f">(1/2)|a×b|</div><div class="d">三角形面積</div></div>
-    <div class="cheat-card"><span class="num">TRAP</span><div class="f">a×b=−(b×a)</div><div class="d">外積不能交換順序</div></div>
+    <div class="cheat-card"><span class="num">SSS</span><div class="f">三邊對應相等</div><div class="d">全等判定</div></div>
+    <div class="cheat-card"><span class="num">SAS</span><div class="f">兩邊夾一角相等</div><div class="d">全等判定</div></div>
+    <div class="cheat-card"><span class="num">ASA</span><div class="f">兩角夾一邊相等</div><div class="d">全等判定</div></div>
+    <div class="cheat-card"><span class="num">AA</span><div class="f">兩角對應相等</div><div class="d">相似判定</div></div>
+    <div class="cheat-card"><span class="num">INSCRIBED ∠</span><div class="f">圓周角=圓心角÷2</div><div class="d">圓周角定理</div></div>
+    <div class="cheat-card"><span class="num">CYCLIC QUAD</span><div class="f">對角和=180°</div><div class="d">圓內接四邊形</div></div>
   </div>
 </div>
 </section>
@@ -487,23 +484,23 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
   <div class="strip">
     <div class="beat">
       <svg class="char" viewBox="0 0 200 200"><use href="#student-shock"/></svg>
-      <div class="bubble"><span class="who">小莊的答案</span><p>要判斷a、b兩向量垂不垂直,我算了a×b,結果不是0向量,所以它們不垂直吧?</p></div>
+      <div class="bubble"><span class="who">小莊的答案</span><p>兩個三角形有兩邊相等、還有一個角相等(但角不夾在那兩邊中間),我覺得這樣條件也夠多了,應該可以判定全等吧?</p></div>
     </div>
   </div>
   <div class="mistake-row">
     <div class="mistake-cell bad">
-      <span class="mistake-label">✕ 用錯工具</span>
-      <div class="formula" style="font-size:1rem;">用外積a×b判斷垂直</div>
+      <span class="mistake-label">✕ 誤用判定</span>
+      <div class="formula" style="font-size:1rem;">兩邊+非夾角相等(SSA)⟹全等</div>
     </div>
     <div class="mistake-cell good">
-      <span class="mistake-label">✓ 正確做法</span>
-      <div class="formula" style="font-size:1rem;">用內積a·b=0判斷垂直</div>
+      <span class="mistake-label">✓ 正確認知</span>
+      <div class="formula" style="font-size:1rem;">SSA不是全等判定,可能對應出兩種不同三角形</div>
     </div>
   </div>
   <div class="strip">
     <div class="beat right">
       <svg class="char" viewBox="0 0 200 200"><use href="#owl-alert"/></svg>
-      <div class="bubble teal"><span class="who">貓頭鷹教授</span><p>判斷垂直要用「內積」,不是外積!事實上,只要a、b不平行,外積a×b幾乎不可能是0向量——因為外積本來就是拿來「造出一個新的垂直方向」,不是用來檢驗a和b本身垂不垂直的。兩個工具功能完全不同,別用錯。</p></div>
+      <div class="bubble teal"><span class="who">貓頭鷹教授</span><p>條件多不代表判定成立!全等判定只認SSS、SAS、ASA(還有較少用到的AAS)這幾種組合,角一定要「夾」在兩個已知邊之間(或邊要夾在兩個已知角之間)才算數。SSA是出題老師最愛的陷阱之一,務必記牢。</p></div>
     </div>
   </div>
 </div>
@@ -514,46 +511,46 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
   <span class="eyebrow">隨堂小測驗</span>
   <h2 class="head">換你上場!挑戰 4 題</h2>
 
-  <div class="quiz-card" data-answer="0" data-explain="|a|=√(1²+2²+2²)=√(1+4+4)=√9=3。">
-    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q1.</span> a=(1,2,2),求|a|=?</div></div>
+  <div class="quiz-card" data-answer="0" data-explain="三邊長度都對應相等,直接符合SSS全等判定。">
+    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q1.</span> 兩個三角形三邊長都對應相等,可用哪個判定確認全等?</div></div>
     <div class="quiz-opts">
-      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>3</button>
-      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>5</button>
-      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>9</button>
-      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>√5</button>
+      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>SSS</button>
+      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>SSA</button>
+      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>AA</button>
+      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>無法判定</button>
     </div>
     <div class="quiz-feedback"></div>
   </div>
 
-  <div class="quiz-card" data-answer="0" data-explain="a·b=1×0+0×0+0×1=0。">
-    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q2.</span> a=(1,0,0), b=(0,0,1), 求a·b=?</div></div>
+  <div class="quiz-card" data-answer="2" data-explain="圓周角是同弧所對圓心角的一半,120÷2=60度。">
+    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q2.</span> 圓心角120°,同弧所對的圓周角是幾度?</div></div>
     <div class="quiz-opts">
-      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>0</button>
-      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>1</button>
-      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>−1</button>
-      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>2</button>
+      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>120°</button>
+      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>240°</button>
+      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>60°</button>
+      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>30°</button>
     </div>
     <div class="quiz-feedback"></div>
   </div>
 
-  <div class="quiz-card" data-answer="0" data-explain="a×b=(0×1−0×0, 0×0−1×1, 1×0−0×0)=(0,−1,0)。">
-    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q3.</span> 承上題,a×b=?</div></div>
+  <div class="quiz-card" data-answer="1" data-explain="直徑所對的圓周角一定是90度,這是圓周角定理的重要推論。">
+    <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-teach"/></svg><div class="qtext"><span class="qnum">Q3.</span> 直徑所對的圓周角是幾度?</div></div>
     <div class="quiz-opts">
-      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>(0,−1,0)</button>
-      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>(0,1,0)</button>
-      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>(1,0,0)</button>
-      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>(0,0,1)</button>
+      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>180°</button>
+      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>90°</button>
+      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>60°</button>
+      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>45°</button>
     </div>
     <div class="quiz-feedback"></div>
   </div>
 
-  <div class="quiz-card" data-answer="1" data-explain="A錯:外積不滿足交換律,a×b=−(b×a),順序顛倒方向會相反;B對:外積的定義就是產生一個同時垂直於a、b的向量;C錯:內積a·b的結果是一個純量(數字),不是向量;D錯:判斷垂直要用內積a·b=0,外積不是拿來判斷垂直的工具。">
+  <div class="quiz-card" data-answer="1" data-explain="A錯:SSA(兩邊加一個非夾角)不是全等判定條件;B對:AA相似正是因為兩角相等時第三角自動相等,形狀就固定;C錯:圓內接四邊形是對角互補(相加180度),不是相等;D錯:圓周角是圓心角的一半,不是相等。">
     <div class="quiz-q"><svg class="char" viewBox="0 0 200 200"><use href="#owl-alert"/></svg><div class="qtext"><span class="qnum">Q4.</span> 下列敘述何者正確?</div></div>
     <div class="quiz-opts">
-      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>a×b = b×a</button>
-      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>a×b是一個同時垂直a、b的向量</button>
-      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>內積a·b的結果是一個向量</button>
-      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>外積可以用來判斷兩向量是否垂直</button>
+      <button class="quiz-opt" data-idx="0"><span class="letter">A</span>兩邊及一個非夾角相等(SSA)可判定兩三角形全等</button>
+      <button class="quiz-opt" data-idx="1"><span class="letter">B</span>兩三角形兩角對應相等,則兩三角形相似</button>
+      <button class="quiz-opt" data-idx="2"><span class="letter">C</span>圓內接四邊形的對角一定相等</button>
+      <button class="quiz-opt" data-idx="3"><span class="letter">D</span>圓周角一定等於同弧所對的圓心角</button>
     </div>
     <div class="quiz-feedback"></div>
   </div>
@@ -564,7 +561,6 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 <div class="panel">
   <span class="eyebrow">下一話預告</span>
   <h2 class="head">學測數學漫畫系列・全單元地圖</h2>
-  <p>數A軌進度 4/8!接下來是空間中的平面與直線。</p>
 
   <div class="track-label">共同科(高一・數A / 數B 皆考)</div>
   <div class="roadmap">
@@ -587,7 +583,7 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
     <a class="roadmap-item done" href="三角函數漫遊記.html"><span class="rn">A-09</span><div class="rt">三角函數(疊合)</div></a>
     <a class="roadmap-item done" href="指數對數漫遊記.html"><span class="rn">A-10</span><div class="rt">指數與對數函數</div></a>
     <a class="roadmap-item done" href="平面向量漫遊記.html"><span class="rn">A-11</span><div class="rt">平面向量</div></a>
-    <div class="roadmap-item active"><span class="rn">A-12</span><div class="rt">空間向量</div></div>
+    <a class="roadmap-item done" href="空間向量漫遊記.html"><span class="rn">A-12</span><div class="rt">空間向量</div></a>
     <a class="roadmap-item done" href="空間平面與直線漫遊記.html"><span class="rn">A-13</span><div class="rt">空間中的平面與直線</div></a>
     <a class="roadmap-item done" href="矩陣漫遊記.html"><span class="rn">A-14</span><div class="rt">矩陣</div></a>
     <a class="roadmap-item done" href="機率與統計漫遊記.html"><span class="rn">A-15</span><div class="rt">機率與統計</div></a>
@@ -610,8 +606,8 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--coral);outline-off
 
 <footer>
   <svg class="char" viewBox="0 0 200 200"><use href="#owl-cheer"/></svg>
-  <p>內積判垂直、外積造垂直向量兼求面積——記住這兩個工具「回傳什麼類型」,就不會用錯。</p>
-  <p style="margin-top:8px;">下一話,空間中的平面與直線見!</p>
+  <p>全等要記SSS、SAS、ASA(SSA不算數!),相似靠AA,圓形則記住圓周角是圓心角的一半、圓內接四邊形對角互補。掌握這幾條判定,幾何證明就有了穩固的地基。</p>
+  <p style="margin-top:8px;">下一話,空間與圖形(數B軌)見!</p>
 </footer>
 
 <script>
